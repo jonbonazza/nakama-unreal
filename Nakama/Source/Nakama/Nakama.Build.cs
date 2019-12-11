@@ -106,9 +106,7 @@ public class Nakama : ModuleRules
 
 		string libName = "nakama-cpp" + libSuffix;
 		
-		PublicLibraryPaths.Add(libsPath);
-		
-		PublicAdditionalLibraries.Add(libName + ".lib");
+		PublicAdditionalLibraries.Add(Path.Combine(libsPath, libName + ".lib"));
 		string binDll = CopyToBinaries(Path.Combine(libsPath, libName + ".dll"), Target);
 		RuntimeDependencies.Add(binDll);
 	}
